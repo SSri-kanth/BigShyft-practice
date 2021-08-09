@@ -1,0 +1,160 @@
+:root{
+/*    --color1: 
+*/
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    font-size: 36px;
+    margin: 30px 0;
+    text-align: center;
+}
+
+p{
+    text-align: center;
+    margin: 10px 0;
+}
+
+a{
+    text-decoration: none;
+    font-size: 12px;
+    padding-right: 50px;
+    color: white;
+}
+
+
+.topnav{
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    background-color: #cf3e39;
+}
+
+.topnav a{
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 32px 20px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav-right{
+    float: right;
+}
+
+.section1{
+    background-color: #2e2e32;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #cf3e39;
+}
+
+.section2{
+    background-color: #4a4980;
+}
+
+.cols{
+    padding: 0 10px;
+    align-items: center;
+    float: left;
+    width: 30%;
+}
+
+.img_text{
+    padding: 15px;
+    text-align: center;
+    background-color: #2e2e32;
+}
+
+.img_pos{
+    padding: 10px;
+}
+  
+.img_pos img{
+    width: 100%;
+    height: auto;
+}
+  
+.button{
+    background-color: #2e2e32;
+    border: none;
+    color: white;
+    padding: 6px 84px;
+    margin-bottom: 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.section3{
+    background-color: #2e2e32;
+    color: white;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.footer{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 20px 0;
+    border-top: 1px solid red;
+    background-color: #2e2e32;
+    color: white;
+    text-align: center;
+    font-size: 10px;
+ }
+
+.text_spacing{
+    padding: 10px;
+}
+
+.text_spacing2{
+    padding-top: 30px;
+    padding-bottom: 20px;
+    text-align: center;
+    color: white;
+    text-decoration: underline;
+}
+
+.text_spacing3{
+    padding-top: 50px;
+    display: inline-block;
+}
+
+@media (max-width: 600px){
+    .topnav a{
+      float: none;
+      width: 100%;
+    }
+
+    .cols{
+        width: 49%;
+        margin: 6px 0;
+    }
+
+    .text_spacing3{
+        float: none;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+}
+
+
