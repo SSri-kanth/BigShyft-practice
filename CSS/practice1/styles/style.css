@@ -11,13 +11,13 @@
 
 h1{
     font-size: 36px;
-    margin: 30px 0;
+    margin-bottom: 30px;
     text-align: center;
 }
 
 p{
     text-align: center;
-    margin: 10px 0;
+    margin-top: 10px;
 }
 
 a{
@@ -29,7 +29,8 @@ a{
 
 
 .topnav{
-    position: sticky;
+    position: fixed;
+    width: 100%;
     top: 0px;
     left: 0px;
     overflow: hidden;
@@ -52,7 +53,7 @@ a{
 
 .section1{
     background-color: #2e2e32;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -62,25 +63,28 @@ a{
 
 .section2{
     background-color: #4a4980;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .cols{
-    padding: 0 10px;
-    align-items: center;
+    margin: 10px;
     float: left;
     width: 30%;
 }
 
 .img_text{
-    padding: 15px;
+    margin: 20px;
     text-align: center;
+    color: white;
     background-color: #2e2e32;
 }
 
 .img_pos{
-    padding: 10px;
 }
-  
+
 .img_pos img{
     width: 100%;
     height: auto;
@@ -101,12 +105,11 @@ a{
 .section3{
     background-color: #2e2e32;
     color: white;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 100px;
 }
 
 .footer{
@@ -135,13 +138,18 @@ a{
 
 .text_spacing3{
     padding-top: 50px;
-    display: inline-block;
 }
 
 @media (max-width: 600px){
     .topnav a{
-      float: none;
-      width: 100%;
+        padding: 12px 20px;
+        float: none;
+        width: 100%;
+    }
+
+    .section1{
+        padding-top: 36px;
+        vertical-align: middle;
     }
 
     .cols{
@@ -150,9 +158,8 @@ a{
     }
 
     .text_spacing3{
-        float: none;
-        flex-direction: column;
-        align-items: stretch;
+        display: block;
+        width: 100%;
     }
 
 }
