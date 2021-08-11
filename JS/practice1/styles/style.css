@@ -1,0 +1,152 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: gold;
+}
+
+.side_panel{
+    width: 25%;
+    height: 100vh;
+    float: left;
+    background-color: goldenrod;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main_panel{
+    display: flex;
+}
+
+.buttons{
+    background-color: beige;
+    border: none;
+    color: black;
+    padding: 20px;
+    margin: 12px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 25px;
+    min-width: 200px;
+}
+
+.items{
+    background-color: chocolate;
+    color: white;
+    padding: 25px;
+    margin: 10px;
+    font-size: 32px;
+    text-align: center;
+}
+
+.direction_row_rev{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.direction_col{
+    display: flex;
+    flex-direction: column;
+}
+
+.direction_col_rev{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.justify_fs{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.justify_es{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.justify_c{
+    display: flex;
+    justify-content: center;
+}
+
+.justify_sb{
+    display: flex;
+    justify-content: space-between;
+}
+
+.justify_sa{
+    display: flex;
+    justify-content: space-around;
+}
+
+.justify_se{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.justify_s{
+    display: flex;
+    justify-content: start;
+}
+
+.justify_e{
+    display: flex;
+    justify-content: end;
+}
+
+.justify_l{
+    display: flex;
+    justify-content: left;
+}
+
+.justify_r{
+    display: flex;
+    justify-content: right;
+}
+
+.align_items_s{
+    display: flex;
+    align-items: stretch;
+}
+
+.align_items_c{
+    display: flex;
+    align-items: center;
+}
+
+.align_items_b{
+    display: flex;
+    align-items: baseline;
+}
+
+.order{
+    background-color: chocolate;
+    color: white;
+    padding: 25px;
+    margin: 10px;
+    font-size: 32px;
+    text-align: center;
+    order: 2;
+}
+
+.flex_grow{
+    background-color: chocolate;
+    color: white;
+    padding: 25px;
+    margin: 10px;
+    font-size: 32px;
+    text-align: center;
+    flex-grow: 4;
+}
+
+.align_self{
+    background-color: chocolate;
+    color: white;
+    font-size: 32px;
+    text-align: center;
+    align-self: flex-end;
+}
