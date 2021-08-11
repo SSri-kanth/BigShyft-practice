@@ -1,6 +1,7 @@
 :root{
-/*    --color1: 
-*/
+    --red_like: #cf3e39;
+    --black_like: #2e2e32;
+    --purple_like: #4a4980;
 }
 
 *{
@@ -12,6 +13,7 @@
 h1{
     font-size: 36px;
     margin-bottom: 30px;
+    color: white;
     text-align: center;
 }
 
@@ -22,11 +24,15 @@ p{
 
 a{
     text-decoration: none;
-    font-size: 12px;
     padding-right: 50px;
     color: white;
 }
 
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
 .topnav{
     position: fixed;
@@ -34,13 +40,13 @@ a{
     top: 0px;
     left: 0px;
     overflow: hidden;
-    background-color: #cf3e39;
+    background-color: var(--red_like);
 }
 
 .topnav a{
     float: left;
     display: block;
-    color: #f2f2f2;
+    color: white;
     text-align: center;
     padding: 32px 20px;
     text-decoration: none;
@@ -52,58 +58,57 @@ a{
 }
 
 .section1{
-    background-color: #2e2e32;
+    background-color: var(--black_like);
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #cf3e39;
+    color: var(--red_like);
 }
 
 .section2{
-    background-color: #4a4980;
+    background-color: var(--purple_like);
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 .cols{
     margin: 10px;
     float: left;
     width: 30%;
+    list-style-type: none;
 }
 
 .img_text{
+    padding-bottom: 12px;
     margin: 20px;
     text-align: center;
     color: white;
-    background-color: #2e2e32;
-}
-
-.img_pos{
+    background-color: var(--black_like);
 }
 
 .img_pos img{
     width: 100%;
     height: auto;
+    padding-bottom: 10px;
 }
   
 .button{
-    background-color: #2e2e32;
+    background-color: var(--black_like);
     border: none;
     color: white;
     padding: 6px 84px;
     margin-bottom: 32px;
-    text-align: center;
-    text-decoration: none;
     font-size: 16px;
     cursor: pointer;
 }
 
 .section3{
-    background-color: #2e2e32;
+    background-color: var(--black_like);
     color: white;
     width: 100%;
     height: 100vh;
@@ -117,8 +122,8 @@ a{
     bottom: 0;
     width: 100%;
     padding: 20px 0;
-    border-top: 1px solid red;
-    background-color: #2e2e32;
+    border-top: 1px solid var(--red_like);
+    background-color: var(--black_like);
     color: white;
     text-align: center;
     font-size: 10px;
@@ -140,7 +145,7 @@ a{
     padding-top: 50px;
 }
 
-@media (max-width: 600px){
+@media (max-width: 768px){
     .topnav a{
         padding: 12px 20px;
         float: none;
@@ -153,17 +158,19 @@ a{
     }
 
     .cols{
-        width: 49%;
+        width: 45%;
         margin: 6px 0;
     }
 
     .img_text{
         font-size: 8px;
+        margin: 8px;
     }
-
+    
     .text_spacing3{
         display: block;
-        width: 100%;
+        padding-left: 40%;
+        
     }
 
 }
