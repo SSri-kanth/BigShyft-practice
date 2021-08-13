@@ -1,0 +1,32 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+label, input, table{
+    margin: 10px;
+}
+
+.container{
+    height: 100vh;
+    display: flex;
+}
+
+.deposit{
+    width: 45%;
+    margin: 2px;
+    border: 2px solid yellow;
+}
+
+.withdrawl{
+    width: 25%;
+    margin: 2px;
+    border: 2px solid yellow;
+}
+
+.current_status{
+    width: 30%;
+    margin: 2px;
+    border: 2px solid yellow;
+}

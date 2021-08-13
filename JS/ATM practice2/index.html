@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ATM display</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ATM machine display for deposit withdrawl and machine status">
+    <meta name="keywords" content="ATM, deposit, withdrawl, status, denominations">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="deposit">
+            <form>
+                <label for = "500_cnt">Please enter number of &#8377;500 notes: </label>
+                <input type="text" id="500_cnt" name="500_cnt" placeholder="0">
+                <br>
+                <label for = "200_cnt">Please enter number of &#8377;200 notes: </label>
+                <input type="text" id="200_cnt" placeholder="0">
+                <br>
+                <label for = "100_cnt">Please enter number of &#8377;100 notes: </label>
+                <input type="text" id="100_cnt" placeholder="0">
+                <br>
+                <label for = "50_cnt">Please enter number of &#8377;50 notes: </label>
+                <input type="text" id="50_cnt" placeholder="0">
+                <br>
+                <label for = "20_cnt">Please enter number of &#8377;20 notes: </label>
+                <input type="text" id="20_cnt" placeholder="0">
+                <br>
+                <label for = "10_cnt">Please enter number of &#8377;10 notes: </label>
+                <input type="text" id="10_cnt" placeholder="0">
+                <br>
+                <button type="submit" id="deposit_submit">Deposit</button>
+            </form>
+        </div>
+
+        <div class="withdrawl">
+            <form>
+                <label for="withdrawl_amount">Please enter amount to withdraw: </label>
+                <input type="text" id="withdrawl_amount" placeholder="0">
+                <button type="submit" id="withdrawl_submit">Withdraw</button>
+            </form>
+
+            <p id="withdraw_msg"></p>
+
+        </div>
+
+        <div class="current_status">
+            <h3>Currently available balance:</h3>
+            <table>
+                <tr>
+                    <th>Denomination</th>
+                    <th>Available</th>
+                </tr>
+                <tr>
+                    <td>&#8377;500</td>
+                    <td id="500_balance">10</td>
+                </tr>
+                <tr>
+                    <td>&#8377;200</td>
+                    <td id="200_balance">10</td>
+                </tr>
+                <tr>
+                    <td>&#8377;100</td>
+                    <td id="100_balance">10</td>
+                </tr>
+                <tr>
+                    <td>&#8377;50</td>
+                    <td id="50_balance">20</td>
+                </tr>
+                <tr>
+                    <td>&#8377;20</td>
+                    <td id="20_balance">25</td>
+                </tr>
+                <tr>
+                    <td>&#8377;10</td>
+                    <td id="10_balance">50</td>
+                </tr>
+            </table>
+            <p><br>Total available amount is &#8377;<span id="total_balance">10000</span></p>
+        </div>
+
+    </div>
+
+    <script src="scripts/script.js"></script>
+</body>
+
+</html>
