@@ -20,6 +20,15 @@ function update_balance(){
     document.getElementById("total_balance").innerHTML=total;
 }
 
+var deposit_amount = 0;
+
+function calc_deposit(denomination, denomination_id){
+    var note = Number(document.getElementById(denomination_id).value);
+    var sum = note * Number(denomination);
+    deposit_amount += sum;
+    document.getElementById("deposit_amount").innerHTML="Total amount to deposit &#8377;" + deposit_amount;
+}
+
 document.getElementById("deposit_submit").addEventListener("click", deposit);
 
 function deposit(event){
@@ -102,6 +111,16 @@ function withdrawl(event){
         }
 
         if (amount == 0){
+
+            document.getElementById("withdraw_msg").innerHTML="transaction for withdrawl is successful <br>" + 
+            "<br> Please collect ...<br>" +
+            "&#8377;500 Notes: " + Number(five_hundreds_cnt - temp_five_hundred) + "<br>" +
+            "&#8377;200 Notes: " + Number(two_hundreds_cnt - temp_two_hundred) + "<br>" +
+            "&#8377;100 Notes: " + Number(one_hundreds_cnt - temp_one_hundred) + "<br>" +
+            "&#8377;50 Notes: " + Number(fifty_cnt - temp_fifty) + "<br>" +
+            "&#8377;20 Notes: " + Number(twenty_cnt - temp_twenty) + "<br>" +
+            "&#8377;10 Notes: " + Number(ten_cnt - temp_ten);
+
             five_hundreds_cnt = temp_five_hundred;
             two_hundreds_cnt = temp_two_hundred;
             one_hundreds_cnt = temp_one_hundred;
@@ -110,7 +129,6 @@ function withdrawl(event){
             ten_cnt = temp_ten;
 
             update_balance();
-            document.getElementById("withdraw_msg").innerHTML="transaction for withdrawl is successful";
         }
         else{
             document.getElementById("withdraw_msg").innerHTML="insufficient notes in machine <br> transaction failed";

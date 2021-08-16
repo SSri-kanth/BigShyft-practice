@@ -15,23 +15,24 @@
         <div class="deposit">
             <form>
                 <label for = "500_cnt">Please enter number of &#8377;500 notes: </label>
-                <input type="text" id="500_cnt" name="500_cnt" placeholder="0">
+                <input type="text" id="500_cnt" placeholder="0" onblur="calc_deposit('500', '500_cnt')">
                 <br>
                 <label for = "200_cnt">Please enter number of &#8377;200 notes: </label>
-                <input type="text" id="200_cnt" placeholder="0">
+                <input type="text" id="200_cnt" placeholder="0" onblur="calc_deposit('200', '200_cnt')">
                 <br>
                 <label for = "100_cnt">Please enter number of &#8377;100 notes: </label>
-                <input type="text" id="100_cnt" placeholder="0">
+                <input type="text" id="100_cnt" placeholder="0" onblur="calc_deposit('100', '100_cnt')">
                 <br>
                 <label for = "50_cnt">Please enter number of &#8377;50 notes: </label>
-                <input type="text" id="50_cnt" placeholder="0">
+                <input type="text" id="50_cnt" placeholder="0" onblur="calc_deposit('50', '50_cnt')">
                 <br>
                 <label for = "20_cnt">Please enter number of &#8377;20 notes: </label>
-                <input type="text" id="20_cnt" placeholder="0">
+                <input type="text" id="20_cnt" placeholder="0" onblur="calc_deposit('20', '20_cnt')">
                 <br>
                 <label for = "10_cnt">Please enter number of &#8377;10 notes: </label>
-                <input type="text" id="10_cnt" placeholder="0">
+                <input type="text" id="10_cnt" placeholder="0" onblur="calc_deposit('10', '10_cnt')">
                 <br>
+                <p id="deposit_amount"></p>
                 <button type="submit" id="deposit_submit">Deposit</button>
             </form>
         </div>
