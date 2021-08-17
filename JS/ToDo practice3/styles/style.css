@@ -1,0 +1,98 @@
+:root{
+    --c1: #41b3a3;
+    --c2: #ccc;
+    --c3: rgba(0,0,0,0.4);
+    --c4: #fefefe;
+    --c5: #888;
+    --c6: #85dcb8;
+    --c7: #659DBD;
+    --c8: lightblue;
+}
+
+div::after{
+    white-space: pre;
+}
+
+body{
+    margin: 0;
+}
+
+.header{
+    overflow: hidden;
+    background-color: var(--c1);
+}
+
+ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+li{
+    padding: 10px 20px 0px 20px;
+    list-style-type: none;
+}
+
+li:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+input[type=text], textarea, select{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid var(--c2);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.header_right{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--c3);
+}
+  
+.modal-content{
+    background-color: var(--c4);
+    margin: auto;
+    padding: 20px;
+    border: 1px solid var(--c5);
+    width: 80%;
+}
+
+.exit_modal1, .exit_modal2{
+    float: right;
+    cursor: pointer;
+}
+
+.buttons{
+    padding: 10px;
+    margin: 10px;
+    background-color: var(--c6);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.buttons:hover{
+    background-color: var(--c7);
+    transform: scale(1.1);
+}
+
+.object_display{
+    padding: 10px;
+    margin: 20px;
+    background: var(--c8);
+}

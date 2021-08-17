@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="To-Do, add tasks to do">
+    <meta name="keywords" content="T0-Do, group, tasks">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+
+<body>
+    <div class="header">
+        <div>
+            <ul id="group_list">
+                <li onclick="display_group('Group 1')">Group 1</li>
+                <li onclick="display_group('Group 2')">Group 2</li>
+                <li onclick="display_group('Group 3')">Group 3</li>
+            </ul>
+        </div>
+
+        <div class="header_right">
+            <button class="buttons" id="add_group">Add Group</button>
+            <button class="buttons" onclick="see_all()">See All</button>
+            <button class="buttons" id="add_task">Add task</button>
+        </div>
+    </div>
+
+    <div id="add_group_modal" class="modal">
+        <div class="modal-content">
+            <span class="exit_modal1">&times;</span>
+            <p>Add group</p>
+            
+            <form>
+                <label for="add_group_name">New Group Name: </label>
+                <input type="text" id="add_group_name"><br>
+            </form>
+
+            <button type="button" class="buttons" onclick="add_group()">Add Group</button>
+        </div>
+    </div>
+
+    <div id="add_task_modal" class="modal">
+        <div class="modal-content">
+            <span class="exit_modal2">&times;</span>
+            <p>Add your to-do task</p>
+            
+            <form>
+                <label for="todo_name">Name: </label>
+                <input type="text" id="todo_name"><br>
+                <label for="todo_description">Description: </label>
+                <textarea id="todo_description"></textarea><br>
+                <label for="group">Choose a group:</label>
+                <select id="group">
+                    <option value="Group 1">Group 1</option>
+                    <option value="Group 2">Group 2</option>
+                    <option value="Group 3">Group 3</option>
+                </select>
+            </form>
+
+            <button type="button" class="buttons" onclick="add_task()">Add task</button>
+        </div>
+    </div>
+
+    <div id="show" class="object_display">
+        <span>Your to-do tasks will be displayed here</span>
+    </div>
+
+
+    <script src="scripts/script.js"></script>
+
+</body>
+
+</html>
