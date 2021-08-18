@@ -39,6 +39,10 @@ function deposit(event){
     var fifty = Number(document.getElementById("50_cnt").value);
     var twenty = Number(document.getElementById("20_cnt").value);
     var ten = Number(document.getElementById("10_cnt").value);
+
+    document.getElementById("deposit_form").reset();
+    deposit_amount = 0;
+    document.getElementById("deposit_amount").innerHTML="";
     
     const note_check = [five_hundreds, two_hundreds, one_hundreds, fifty, twenty, ten];
 

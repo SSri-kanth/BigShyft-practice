@@ -2,10 +2,19 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    --c1: yellow;
+}
+
+div::after{
+    white-space: pre;
 }
 
 label, input, table{
     margin: 10px;
+}
+
+input[type=text]{
+    text-align: right;
 }
 
 .container{
@@ -16,17 +25,17 @@ label, input, table{
 .deposit{
     width: 45%;
     margin: 2px;
-    border: 2px solid yellow;
+    border: 2px solid var(--c1);
 }
 
 .withdrawl{
     width: 25%;
     margin: 2px;
-    border: 2px solid yellow;
+    border: 2px solid var(--c1);
 }
 
 .current_status{
     width: 30%;
     margin: 2px;
-    border: 2px solid yellow;
+    border: 2px solid var(--c1);
 }
