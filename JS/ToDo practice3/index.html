@@ -9,29 +9,30 @@
     <link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
 
+
 <body>
+
     <div class="header">
-        <div>
-            <ul id="group_list">
-                <li onclick="display_group('Group 1')">Group 1</li>
-                <li onclick="display_group('Group 2')">Group 2</li>
-                <li onclick="display_group('Group 3')">Group 3</li>
-            </ul>
+        <div class="group_header" id="group_list">
         </div>
 
         <div class="header_right">
-            <button class="buttons" id="add_group">Add Group</button>
+            <button class="buttons" onclick="add_group_modal.style.display='block'">Add Group</button>
+<!--
+            <button class="buttons" onclick="remove_group_modal.style.display='block'">Remove Group</button>
+-->
             <button class="buttons" onclick="see_all()">See All</button>
-            <button class="buttons" id="add_task">Add task</button>
+            <button class="buttons" onclick="add_task_modal.style.display='block'">Add task</button>
         </div>
     </div>
 
+
     <div id="add_group_modal" class="modal">
         <div class="modal-content">
-            <span class="exit_modal1">&times;</span>
+            <span class="exit_modal" onclick="add_group_modal.style.display='none'">&times;</span>
             <p>Add group</p>
             
-            <form>
+            <form id="add_group">
                 <label for="add_group_name">New Group Name: </label>
                 <input type="text" id="add_group_name"><br>
             </form>
@@ -40,27 +41,42 @@
         </div>
     </div>
 
-    <div id="add_task_modal" class="modal">
+
+    <div id="remove_group_modal" class="modal">
         <div class="modal-content">
-            <span class="exit_modal2">&times;</span>
-            <p>Add your to-do task</p>
+            <span class="exit_modal" onclick="remove_group_modal.style.display='none'">&times;</span>
+            <p>Remove a group</p>
             
             <form>
+                <label for="group_list_remove">Choose a group to remove:</label>
+                <select id="group_list_remove">
+                </select>
+            </form>
+
+            <button type="button" class="buttons" onclick="remove_group()">Remove Group</button>
+        </div>
+    </div>
+
+
+    <div id="add_task_modal" class="modal">
+        <div class="modal-content">
+            <span class="exit_modal" onclick="add_task_modal.style.display='none'">&times;</span>
+            <p>Add your to-do task</p>
+            
+            <form id="task_form">
                 <label for="todo_name">Name: </label>
-                <input type="text" id="todo_name"><br>
+                <input type="text" id="todo_name" placeholder="to-do title..."><br>
                 <label for="todo_description">Description: </label>
                 <textarea id="todo_description"></textarea><br>
                 <label for="group">Choose a group:</label>
                 <select id="group">
-                    <option value="Group 1">Group 1</option>
-                    <option value="Group 2">Group 2</option>
-                    <option value="Group 3">Group 3</option>
                 </select>
             </form>
 
             <button type="button" class="buttons" onclick="add_task()">Add task</button>
         </div>
     </div>
+
 
     <div id="show" class="object_display">
         <span>Your to-do tasks will be displayed here</span>
