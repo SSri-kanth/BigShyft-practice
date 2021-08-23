@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import './Header.css';
 import UserFormModal from '../UserFormModal';
 
@@ -16,7 +16,7 @@ function Header() {
             </div>
             <div>
                 <button className="add_button" onClick={() => { setModalOpen(true); }}> &#43;</button>
-                {modalOpen && <UserFormModal isModelOpen = {modalOpen} />}
+                {modalOpen && <UserFormModal isModelOpen = {modalOpen} setModalOpen={setModalOpen} />}
             </div>
         </nav>
     )

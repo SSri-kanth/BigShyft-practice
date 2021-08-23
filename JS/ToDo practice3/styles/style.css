@@ -101,3 +101,7 @@ input[type=text], textarea, select{
 .object_display:empty{
     background-color: var(--white);
 }
+
+.active_bg{
+    background-color: yellow;
+}

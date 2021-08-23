@@ -1,15 +1,22 @@
-.modalBackground {
+.modalBackground{
     position: fixed;
     left: 36px;
     top: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+    z-index: 1;
+}
   
-  .modalContainer {
+.modalContainer{
     background-color: silver;
     display: flex;
     flex-direction: column;
-    padding: 25px;
-  } 
+    position: relative;
+    padding: 36px;
+    
+} 
+
+.close_icon{
+  top: 16px;
+  right: 20px;
+  position: absolute;
+  cursor: pointer;
+}

@@ -4,6 +4,11 @@ function task(Name, Description, Group){
     this.Group = Group;
 }
 
+function group(Name, state){
+    this.Name = Name;
+    this.state = state;
+}
+
 var group_list_el = document.getElementById("group_list");
 var group_name_el = document.getElementById("add_group_name");
 var add_group_el = document.getElementById("add_group");
@@ -12,15 +17,15 @@ var select_el = document.getElementById("group");
 var task_display_el = document.getElementById("show");
 
 var tasks = [];
-var groups = ["Hgih Priority", "Normal", "Others"];
+var groups = [];
 
 
 function update_groups(){
     for (let i = 0; i < groups.length; i++){
         let a = document.createElement("a");
-        let group = document.createTextNode(groups[i]);
+        let group = document.createTextNode(groups[i].Name);
         a.appendChild(group);
-        a.onclick = function(){ display_group(groups[i]);}
+        a.onclick = function(){ display_group(groups[i].Name);}
         group_list_el.appendChild(a);
     }
 }
@@ -29,8 +34,8 @@ update_groups()
 function update_dropdown(){
     for (let i = 0; i < groups.length; i++){
         let dropdown = document.createElement("option");
-        dropdown.textContent = groups[i];
-        dropdown.value = groups[i];
+        dropdown.textContent = groups[i].Name;
+        dropdown.value = groups[i].Name;
         select_el.appendChild(dropdown);
         //select_group_remove_el.appendChild(dropdown);        
     }
@@ -39,7 +44,9 @@ update_dropdown()
 
 
 function add_group(){
-    groups.push(group_name_el.value);
+    let name =  group_name_el.value;
+    let group_object = new group(name, "not_active");
+    groups.push(group_object);
     add_group_el.reset();
 
     group_list_el.innerHTML="";
@@ -108,15 +115,16 @@ function delete_task(task){
 }
 
 function display_group(group_selected){
-    var text = "";
-
-    for (var i = 0; i < tasks.length; i++){
-        var task = tasks[i];
+    task_display_el.innerHTML = "";
+    for (let i = 0; i < tasks.length; i++){
+        let task = tasks[i];
+        let todo = document.createElement("p");
         if (task.Group == group_selected){
-            for (var x in task){
-                text += ( x + ": " + task[x] + "<br><br>");
+            for (let x in task){
+                let todo_text = document.createTextNode(" " + x + ": " + task[x]);
+                todo.appendChild(todo_text);
             }
-            text += "<br/>";
+            task_display_el.appendChild(todo);    
         }
     }
     task_display_el.innerHTML = text;

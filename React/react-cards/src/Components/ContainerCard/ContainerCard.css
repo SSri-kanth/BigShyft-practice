@@ -1,0 +1,8 @@
+.left{
+    width: 500px;
+}
+
+.right{
+    display: flex;
+    flex-grow: 1;
+}

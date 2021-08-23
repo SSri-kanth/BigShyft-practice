@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import './UserLists.css';
 import UserCard from '../UserCard';
 
-
 class UserList extends Component {
 
 	constructor(props){
