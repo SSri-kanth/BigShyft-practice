@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 import UserForm from "../UserForm/UserForm";
 
 
-const UserFormModal = ({ isModelOpen, setModalOpen }) => {
+const UserFormModal = ({ isModelOpen, setModalOpen, addUser }) => {
     return (
         <Modal isOpen={isModelOpen} setModalOpen={setModalOpen}>
-            <UserForm />
+            <UserForm addUser={addUser}/>
         </Modal>
     );
 }
@@ -15,7 +15,8 @@ const UserFormModal = ({ isModelOpen, setModalOpen }) => {
 
 UserFormModal.propTypes = {
     isModelOpen: PropTypes.bool,
-    setModalOpen: PropTypes.func
+    setModalOpen: PropTypes.func,
+    addUser: PropTypes.func
 }
 
 export default UserFormModal;

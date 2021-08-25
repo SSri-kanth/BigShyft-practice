@@ -1,24 +1,65 @@
-import React from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types'
 
-function LoginForm() {
 
-    return (
-        <div>
-            <form id="login_form" >
-                <label>
-                    Enter Username
-                    <input type="text" name="id" placeholder="Enter Username" />
-                </label>
-                <br />
-                <label>
-                    Password
-                    <input type="text" name="Name" placeholder="Enter Password" />
-                </label>
-                <br />
-                <button type="submit">Log In</button>
-            </form>
-        </div>
-    )
+class LoginForm extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {username: '', password: ''}
+    }
+
+    handleLogin = (e) => {
+        e.preventDefault();
+        if (e.target[0].value === e.target[1].value) {
+            alert("logged in");
+            this.props.changePage("afterlogin");
+        }
+    }
+
+    changeStateUsername = (e) => {
+        e.preventDefault();
+        console.log(e.target);
+        this.setState({username: e.target.value})
+
+    }
+
+    changeStatePassword = (e) => {
+        e.preventDefault();
+        this.setState({password: e.target.value})
+    }
+
+    componentDidUpdate(prevProps){
+        if (prevProps.clickCard !== this.props.clickCard){
+            this.setState({username: this.props.clickCard, password: this.props.clickCard})
+        }
+    }
+
+    render = () => {
+        return (
+            <div>
+                <form onSubmit={this.handleLogin} >
+                    <label>
+                        Enter Username
+                        <input type="text" name="username" placeholder="Enter Username" onChange={this.changeStateUsername} value={this.state.username} />
+                    </label>
+                    <br />
+                    <label>
+                        Password
+                        <input type="password" name="password" placeholder="Enter Password" onChange={this.changeStatePassword} value={this.state.password} />
+                    </label>
+                    <br />
+                    <button type="submit">Log In</button>
+                </form>
+            </div>
+        )
+    }
 }
 
 export default LoginForm;
+
+LoginForm.propTypes = {
+    items: PropTypes.array,
+    clickCard: PropTypes.string,
+    changePage: PropTypes.func
+}

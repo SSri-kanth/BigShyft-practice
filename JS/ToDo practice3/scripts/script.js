@@ -15,6 +15,7 @@ var add_group_el = document.getElementById("add_group");
 var select_el = document.getElementById("group");
 //var select_group_remove_el = document.getElementById("group_list_remove");
 var task_display_el = document.getElementById("show");
+var current_group = "see_all";
 
 var tasks = [];
 var groups = [];
@@ -103,6 +104,10 @@ function add_task(){
     tasks.push(task_object);
     //see_all();
 
+    if (current_group == group_selected){
+        display_group(group_selected);
+    }
+
     document.getElementById("task_form").reset();
 }
 
@@ -115,6 +120,7 @@ function delete_task(task){
 }
 
 function display_group(group_selected){
+    current_group = group_selected;
     task_display_el.innerHTML = "";
     for (let i = 0; i < tasks.length; i++){
         let task = tasks[i];

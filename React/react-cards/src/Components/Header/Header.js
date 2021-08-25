@@ -3,22 +3,23 @@ import './Header.css';
 import UserFormModal from '../UserFormModal';
 
 
-function Header() {
+const Header = (props) => {
     const [modalOpen, setModalOpen] = useState(false);
+    var {addUser} = props;
 
     return (
-        <nav className="header">
+        <div className="header">
             <div>
                 <span className="back">&#8249;</span>
             </div>
             <div>
                 <span className="title">Card List</span>
             </div>
-            <div>
+            <nav>
                 <button className="add_button" onClick={() => { setModalOpen(true); }}> &#43;</button>
-                {modalOpen && <UserFormModal isModelOpen = {modalOpen} setModalOpen={setModalOpen} />}
-            </div>
-        </nav>
+                {modalOpen && <UserFormModal isModelOpen = {modalOpen} setModalOpen={setModalOpen} addUser={addUser}/>}
+            </nav>
+        </div>
     )
 }
 

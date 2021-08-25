@@ -1,56 +1,55 @@
 import React, { Component } from "react";
 import './RightContainer.css'
-import Login from "../Login/Login";
-import SignUp from "../../SignUp";
+import RightHeader from "../RightHeader";
 import UserForm from "../UserForm/UserForm";
+import LoginForm from "../LoginForm"
+import PropTypes from 'prop-types'
+import HomePage from "../HomePage";
+
 
 class RightContainer extends Component {
-
-
-	SignUpPage = () => {
-
-		return(
-			<nav>
-				<div>
-					<h1>Sign Up</h1>
-					<p>Please fill in this form to create an account.</p>
-				</div>
-				<div>
-					<button onClick= {this.LoginPage}> Log In</button>
-				</div>
-				<div>
-					<SignUp/>
-				</div>
-			</nav>
-		)
+	constructor(props) {
+		super(props);
+		this.state = {
+			currentPage: "login",
+		};
 	}
 
-	LoginPage = () => {
-
-		return (
-			<nav>
-				<div>
-					<h1>Log In</h1>
-					<p>Kindly fill details for login</p>
-				</div>
-				<div>
-					<button onClick={() => this.signup}> Sign Up</button>
-				</div>
-				<div>
-					<Login/>
-				</div>
-			</nav>
-		)
+	handleChangePage = (currentPage) => {
+		switch (currentPage) {
+			case "login":
+				this.setState({ currentPage: "signup" });
+				break;
+			case "signup":
+				this.setState({ currentPage: "login" });
+				break;
+			case "afterlogin":
+				this.setState({ currentPage: "login" });
+				break;
+			default:
+		}
 	}
 
-
+	handleChangeScreen = (currentPage) => {
+		this.setState({currentPage})
+	}
 	render() {
+		const { currentPage } = this.state;
 		return (
 			<div>
-				{this.LoginPage}
+				<RightHeader currentPage={currentPage} changePage={this.handleChangePage} />
+				{currentPage === "login" && <LoginForm items={this.props.items} clickCard={this.props.clickCard} changePage={this.handleChangeScreen} />}
+				{currentPage === "signup" && <UserForm addUser={this.props.addUser} />}
+				{currentPage === "afterlogin" && <HomePage changePage={this.handleChangePage} />}
 			</div>
 		)
 	}
 }
 
 export default RightContainer;
+
+RightContainer.propTypes = {
+	items: PropTypes.array,
+	addUser: PropTypes.func,
+	clickCard: PropTypes.string
+}
