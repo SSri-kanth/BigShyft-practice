@@ -10,11 +10,21 @@ class LoginForm extends Component {
     }
 
     handleLogin = (e) => {
+
+        const userNames = [];
+        this.props.items.forEach(function(item){userNames.push(item.username)});
+        //console.log(userNames);
+
         e.preventDefault();
-        if (e.target[0].value === e.target[1].value) {
+        if ((e.target[0].value === e.target[1].value) && (userNames.includes(e.target[0].value))) {
             alert("logged in");
             this.props.changePage("afterlogin");
+            this.props.getLoggedUser(e.target[0].value);
         }
+        else{
+            alert("invalid credentials");
+        }
+
     }
 
     changeStateUsername = (e) => {
@@ -34,6 +44,7 @@ class LoginForm extends Component {
             this.setState({username: this.props.clickCard, password: this.props.clickCard})
         }
     }
+    
 
     render = () => {
         return (
@@ -61,5 +72,7 @@ export default LoginForm;
 LoginForm.propTypes = {
     items: PropTypes.array,
     clickCard: PropTypes.string,
-    changePage: PropTypes.func
+    changePage: PropTypes.func,
+    loggedUser: PropTypes.string,
+    getLoggedUser: PropTypes.func
 }

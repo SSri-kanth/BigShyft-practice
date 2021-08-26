@@ -13,32 +13,32 @@ function UserForm(props){
             <form onSubmit={handleSubmit}>
                 <label>
                     Enter your ID:
-                    <input type="text" name="id" placeholder="Enter ID"/>
+                    <input type="text" name="id" placeholder="Enter ID" required/>
                 </label>
                 <br />
                 <label>
                     Enter your Name:
-                    <input type="text" name="Name" placeholder="Enter Name"/>
+                    <input type="text" name="Name" placeholder="Enter Name" required/>
                 </label>
                 <br />
                 <label>
                     Enter your User Name:
-                    <input type="text" name="UserName" placeholder="Enter Username"/>
+                    <input type="text" name="UserName" placeholder="Enter Username" required/>
                 </label>
                 <br />
                 <label>
                     Enter your E-Mail ID:
-                    <input type="text" name="eMail" placeholder="Enter Email"/>
+                    <input type="text" name="eMail" placeholder="Enter Email" required/>
                 </label>
                 <br />
                 <label>
                     Enter your Website:
-                    <input type="text" name="Website" placeholder="Enter Website"/>
+                    <input type="text" name="Website" placeholder="Enter Website" required/>
                 </label>
                 <br />
                 <label>
                     Enter your Phone number:
-                    <input type="text" name="Phone" placeholder="Enter Phone No."/>
+                    <input type="text" name="Phone" placeholder="Enter Phone No." required/>
                 </label>
                 <button type="submit">Submit</button>
             </form>

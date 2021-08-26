@@ -12,6 +12,7 @@ class RightContainer extends Component {
 		super(props);
 		this.state = {
 			currentPage: "login",
+			loggedUser: "",
 		};
 	}
 
@@ -33,14 +34,19 @@ class RightContainer extends Component {
 	handleChangeScreen = (currentPage) => {
 		this.setState({currentPage})
 	}
+
+	getLoggedUser = (loggedUser) => {
+		this.setState({loggedUser})
+	}
+
 	render() {
-		const { currentPage } = this.state;
+		const { currentPage, loggedUser } = this.state;
 		return (
 			<div>
 				<RightHeader currentPage={currentPage} changePage={this.handleChangePage} />
-				{currentPage === "login" && <LoginForm items={this.props.items} clickCard={this.props.clickCard} changePage={this.handleChangeScreen} />}
-				{currentPage === "signup" && <UserForm addUser={this.props.addUser} />}
-				{currentPage === "afterlogin" && <HomePage changePage={this.handleChangePage} />}
+				{currentPage === "login" && <LoginForm items={this.props.items} clickCard={this.props.clickCard} changePage={this.handleChangeScreen} loggedUser={loggedUser} getLoggedUser={this.getLoggedUser}/>}
+				{currentPage === "signup" && <UserForm addUser={this.props.addUser} items={this.props.items}/>}
+				{currentPage === "afterlogin" && <HomePage items={this.props.items} changePage={this.handleChangePage} loggedUser={loggedUser}/>}
 			</div>
 		)
 	}
