@@ -11,15 +11,12 @@ class LoginForm extends Component {
 
     handleLogin = (e) => {
 
-        const userNames = [];
-        this.props.items.forEach(function(item){userNames.push(item.username)});
-        //console.log(userNames);
-
         e.preventDefault();
-        if ((e.target[0].value === e.target[1].value) && (userNames.includes(e.target[0].value))) {
+        if ((e.target[0].value === e.target[1].value)  ) {
+            const user = this.props.items.find(el => el.username === e.target[0].value);
             alert("logged in");
             this.props.changePage("afterlogin");
-            this.props.getLoggedUser(e.target[0].value);
+            this.props.getLoggedUser(user);
         }
         else{
             alert("invalid credentials");
