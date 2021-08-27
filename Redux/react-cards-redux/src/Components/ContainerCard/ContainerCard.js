@@ -2,35 +2,26 @@ import React, { Component } from "react";
 import './ContainerCard.css'
 import LeftContainer from "../LeftContainer";
 import RightContainer from "../RightContainer/RightContainer";
-import { connect } from 'react-redux';
-
+import { connect } from "react-redux";
+import PropTypes from 'prop-types';
+import { fetchUsers } from "../reducer/actions";
+import { addUserToList } from "../reducer/actions";
 
 class ContainerCard extends Component {
 
 	constructor(props) {
 		super(props);
 		this.state = {
-			items: [],
-			isLoaded: false,
 			clickCard: "",
 		}
 	}
 
 	componentDidMount() {
-		fetch('https://jsonplaceholder.typicode.com/users')
-			.then(res => res.json())
-			.then(json => {
-				this.setState({
-					isLoaded: true,
-					items: json,
-				})
-			});
+		this.props.fetchUsers();
 	}
 
 	addUser = (newUser) => {
-		var list = this.state.items;
-		list.unshift(newUser);
-		this.setState({ items: list });
+		this.props.addUserToList(newUser);
 	}
 
 	cardClick = (item) => {
@@ -39,25 +30,33 @@ class ContainerCard extends Component {
 	}
 
 	render() {
-		var { isLoaded, items, clickCard } = this.state;
+		var { clickCard } = this.state;
 		return (
 			<div>
 				<div>
-					<LeftContainer isLoaded={isLoaded} items={items} addUser={this.addUser} cardClick={this.cardClick} />
+					<LeftContainer isLoaded={this.props.isLoaded} items={this.props.items} addUser={this.addUser} cardClick={this.cardClick} />
 				</div>
 				<div>
-					<RightContainer items={items} addUser={this.addUser} clickCard={clickCard} />
+					<RightContainer items={this.props.items} addUser={this.addUser} clickCard={clickCard} />
 				</div>
 			</div>
 		);
 	}
 }
 
-const mapDispatchToProps = dispatch =>{
-    return{
-        //: (user) => dispatch(loggedUser(user))
-    }
+const mapStateToProps = (state) => ({
+	items: state.userList,
+	isLoaded: state.isLoaded
+})
+
+const mapDispatchToProps = {
+	fetchUsers,
+	addUserToList
 }
 
-export default ContainerCard;
+export default connect(mapStateToProps, mapDispatchToProps)(ContainerCard);
 
+ContainerCard.propTypes = {
+	fetchUsers: PropTypes.func,
+	isLoaded: PropTypes.bool
+}

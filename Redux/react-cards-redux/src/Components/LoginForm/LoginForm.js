@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux';
-import { loggedUser } from '../../actions';
-
 
 
 class LoginForm extends Component {
@@ -67,19 +64,13 @@ class LoginForm extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch =>{
-    return{
-        //: (user) => dispatch(loggedUser(user))
-    }
-}
 
-export default connect(null, mapDispatchToProps)(LoginForm);
+export default LoginForm;
 
 LoginForm.propTypes = {
     items: PropTypes.array,
     clickCard: PropTypes.string,
     changePage: PropTypes.func,
-    loggedUser: PropTypes.string,
     getLoggedUser: PropTypes.func
 }
 

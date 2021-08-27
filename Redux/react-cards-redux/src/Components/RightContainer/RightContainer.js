@@ -5,7 +5,8 @@ import UserForm from "../UserForm/UserForm";
 import LoginForm from "../LoginForm"
 import PropTypes from 'prop-types'
 import HomePage from "../HomePage";
-
+import {connect} from "react-redux";
+import {loggedUserAction} from "../reducer/actions";
 
 
 class RightContainer extends Component {
@@ -33,28 +34,35 @@ class RightContainer extends Component {
 	}
 
 	handleChangeScreen = (currentPage) => {
-		this.setState({currentPage})
+		this.setState({currentPage});
 	}
 
-/*	getLoggedUser = (loggedUser) => {
-		this.setState({loggedUser})
+	getLoggedUser = (loggedUser) => {
+		this.props.loggedUserAction(loggedUser);
 	}
-*/
+
 	render() {
-		const { currentPage, loggedUser } = this.state;
+		const { currentPage } = this.state;
 		return (
 			<div>
 				<RightHeader currentPage={currentPage} changePage={this.handleChangePage} />
-				{currentPage === "login" && <LoginForm items={this.props.items} clickCard={this.props.clickCard} changePage={this.handleChangeScreen} loggedUser={loggedUser} getLoggedUser={this.getLoggedUser}/>}
+				{currentPage === "login" && <LoginForm items={this.props.items} clickCard={this.props.clickCard} changePage={this.handleChangeScreen} getLoggedUser={this.getLoggedUser}/>}
 				{currentPage === "signup" && <UserForm addUser={this.props.addUser} items={this.props.items}/>}
-				{currentPage === "afterlogin" && <HomePage items={this.props.items} changePage={this.handleChangePage} loggedUser={loggedUser}/>}
+				{currentPage === "afterlogin" && <HomePage items={this.props.items} changePage={this.handleChangePage} loggedUser={this.props.loggedUser}/>}
 			</div>
 		)
 	}
 }
 
-//export default RightContainer;
-export default connect(mapStateToProps, mapDispatchToProps)(RightHeader);
+const mapStateToProps = (state) => ({
+	loggedUser: state.loggedUser
+})
+
+const mapDispatchToProps = {
+	loggedUserAction
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RightContainer);
 
 RightContainer.propTypes = {
 	items: PropTypes.array,
