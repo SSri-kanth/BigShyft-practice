@@ -1,0 +1,22 @@
+.modalBackground{
+    position: fixed;
+    left: 36px;
+    top: 100px;
+    z-index: 1;
+}
+  
+.modalContainer{
+    background-color: silver;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 36px;
+    
+} 
+
+.close_icon{
+  top: 16px;
+  right: 20px;
+  position: absolute;
+  cursor: pointer;
+}

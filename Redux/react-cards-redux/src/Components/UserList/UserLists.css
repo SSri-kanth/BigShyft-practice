@@ -1,0 +1,22 @@
+.user_list {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin: 20px;
+}
+
+.user_card:nth-child(4n+1) {
+    background-image: linear-gradient(to right, rgba(199, 167, 255, 255), rgba(142, 156, 253, 255));
+}
+
+.user_card:nth-child(4n+2) {
+    background-image: linear-gradient(to right, rgba(132, 193, 240, 255), rgba(57, 198, 184, 255));
+}
+
+.user_card:nth-child(4n+3) {
+    background-image: linear-gradient(to right, rgba(241, 141, 169, 255), rgba(244, 136, 132, 255));
+}
+
+.user_card:nth-child(4n) {
+    background-image: linear-gradient(to right, rgba(200, 255, 51, 255), yellow);
+}
